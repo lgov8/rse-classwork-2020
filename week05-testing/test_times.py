@@ -33,10 +33,10 @@ def test_times_touching():
     
     assert (compute_overlap_time(large, short)) == expected
 
-def test_time_check():
+def test_starttime_before_endtime():
     with raises(ValueError):
         time_range("2010-01-12 11:00:00","2010-01-12 10:00:00")
 
-def test_time_check2():
+def test_starttime_equal_endtime():
     with raises(ValueError):
         time_range("2010-01-12 11:00:00","2010-01-12 11:00:00")

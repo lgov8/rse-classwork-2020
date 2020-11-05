@@ -26,8 +26,6 @@ def compute_overlap_time(range1, range2):
             #overlap_time.append((low, high))
             if high > low:
                 overlap_time.append((low, high))
-            elif high == low:
-                overlap_time.append((low))
     return overlap_time
 
 if __name__ == "__main__":

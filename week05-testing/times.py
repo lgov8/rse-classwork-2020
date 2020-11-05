@@ -7,6 +7,8 @@ def time_range(start_time, end_time, number_of_intervals=1, gap_between_interval
     # check end time after start time
     if end_time_s < start_time_s:
         raise ValueError('End time is before start time')
+    if end_time_s == start_time_s:
+        raise ValueError('End time is same as start time')
 
     d = (end_time_s - start_time_s).total_seconds() / number_of_intervals + gap_between_intervals_s * (1 / number_of_intervals - 1)
     sec_range = [(start_time_s + datetime.timedelta(seconds=i * d + i * gap_between_intervals_s),
@@ -21,7 +23,11 @@ def compute_overlap_time(range1, range2):
         for start2, end2 in range2:
             low = max(start1, start2)
             high = min(end1, end2)
-            overlap_time.append((low, high))
+            #overlap_time.append((low, high))
+            if high > low:
+                overlap_time.append((low, high))
+            elif high == low:
+                overlap_time.append((low))
     return overlap_time
 
 if __name__ == "__main__":

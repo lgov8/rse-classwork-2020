@@ -36,3 +36,7 @@ def test_times_touching():
 def test_time_check():
     with raises(ValueError):
         time_range("2010-01-12 11:00:00","2010-01-12 10:00:00")
+
+def test_time_check2():
+    with raises(ValueError):
+        time_range("2010-01-12 11:00:00","2010-01-12 11:00:00")

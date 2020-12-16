@@ -5,7 +5,7 @@ for use as an exercise on refactoring.
 
 This code simulates the swarming behaviour of bird-like objects ("boids").
 """
-
+#
 from matplotlib import pyplot as plt
 from matplotlib import animation
 
